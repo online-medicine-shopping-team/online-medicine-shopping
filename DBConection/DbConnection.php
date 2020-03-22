@@ -66,5 +66,8 @@ class DbConnection {
     function Update($database_query){
        return $this->database_query( $database_query )  or die("Update error") ;
     }   
-}
-} 
+    //_________________________________________________________________________________________delete
+    function delete($database_query){
+        return $this->database_query( $database_query )  or die("delete error") ;    
+     }       
+ }

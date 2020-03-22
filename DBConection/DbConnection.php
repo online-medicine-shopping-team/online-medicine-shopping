@@ -61,7 +61,48 @@ class DbConnection {
     public  function encode(){
         mysqli_query($this->database_connection,"SET NAMES utf8");
     }
-    
+     //_________________________________________________________________________________________Insert "INSERT INTO `test` (id,Permeation) VALUES(\'22\',\'hy\')";
+     function insert($table_name,$t_column=array(),$t_value=array()){
+        $sql="INSERT INTO `$table_name` ";
+        $count=0;
+        foreach ($t_column as $column) {
+        
+        
+         if($count==count($t_column)-1)
+            { 
+                if($count==0) {$sql.='(';}
+                
+                $sql.=$column.')';
+            }else
+            {
+                $sql.=$column.",";
+            }
+            $count++;
+        }
+        $sql.=" VALUES(";
+        $count=0;
+        foreach($t_value as $value)
+        {  if($count==count($t_value)-1)
+            {
+                $sql.="'$value'".')';
+            }else
+            {
+                $sql.="'$value'".",";
+            }
+            $count++;
+        }
+        //return $sql;
+        if($this->database_query($sql)){
+            return true;
+        }
+        else return false;
+
+
+     }
+    //_________________________________________________________________________________________Insert_WithStringQuery
+     function Insert_WithStringQuery($database_query){
+        return $this->database_query( $database_query )  or die("Insert error") ;
+     } 
     //_________________________________________________________________________________________Update
     function Update($database_query){
        return $this->database_query( $database_query )  or die("Update error") ;
@@ -69,5 +110,6 @@ class DbConnection {
     //_________________________________________________________________________________________delete
     function delete($database_query){
         return $this->database_query( $database_query )  or die("delete error") ;    
-     }       
+     }
+
  }

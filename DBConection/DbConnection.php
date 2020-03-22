@@ -62,5 +62,9 @@ class DbConnection {
         mysqli_query($this->database_connection,"SET NAMES utf8");
     }
     
-    
+    //_________________________________________________________________________________________Update
+    function Update($database_query){
+       return $this->database_query( $database_query )  or die("Update error") ;
+    }   
+}
 } 

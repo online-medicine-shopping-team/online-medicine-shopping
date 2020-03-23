@@ -61,6 +61,13 @@ class DbConnection {
     public  function encode(){
         mysqli_query($this->database_connection,"SET NAMES utf8");
     }
+  //_________________________________________________________________________________________Select
+  function select($database_query){
+    //$database_query = $this.clean($database_query);
+
+   return $this-> fetch($this->database_query( $database_query ) );
+   
+}
      //_________________________________________________________________________________________Insert "INSERT INTO `test` (id,Permeation) VALUES(\'22\',\'hy\')";
      function insert($table_name,$t_column=array(),$t_value=array()){
         $sql="INSERT INTO `$table_name` ";

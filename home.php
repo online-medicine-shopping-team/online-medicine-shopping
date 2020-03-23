@@ -1,3 +1,17 @@
+<?php
+
+include_once './Classes/Class_HomeQuery.php';
+
+$HomeObjects;
+
+$Product=array();
+
+$HomeObjects = new Class_HomeQuery();
+$Product     = $HomeObjects->Get_HomeObjects();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

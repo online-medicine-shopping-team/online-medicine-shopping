@@ -38,7 +38,17 @@ class DbConnection {
     public   function database_close() {
         if(!mysqli_close($this->database_connection)) die ("Connection close failed.");
            
-    } 
+    }
+    //__________________________________________________________________________________________Clean
+
+    public function clean($str) {
+		$str = trim($str);
+        $str = stripslashes($str);
+        $str = strip_tags($str);
+		$str= mysqli_real_escape_string($this->database_connection,$str);
+                return $str;
+	}
+   	
 
     //_________________________________________________________________________________________Query And Encode
 

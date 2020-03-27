@@ -300,58 +300,106 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                         <div class="col-md-12 col-sm-12 col-xs-12"  >
                                             <!--                                        <div class="bg_best">-->
                                             <div class="bg_best">
-                                                <div class="owl-carousel">
+       <!---------------------------------------------------------Today Bestsellers---------------------------------------------->
+
+                                                 <div class="owl-carousel">
                                                     <div class="item">
                                                         <span>
-                                                            <a href="#">
-                                                                <img class="carasoul_image" src="images/900 (3).jpg">
-                                                            </a></span>
+                                                         <?php
+                                                         $Medicine_number=0;
+                                                         echo'
+                                                            <a href="search_result.php?name='.$Product[$Medicine_number]['name'].'">
+                                                                
+                                                                    <img  class="carasoul_image" src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'"  width="130px">
+                                                                
+                                                            </a>
+                                                            ';
+                                                            ?>
+                                                            </span>
                                                         <a   href="#" role="button" >
                                                     
                                                         </a>
                                                     </div>
                                                     <div class="item">
                                                         <span>
-                                                            <a href="#">
-                                                                <img class="carasoul_image" src="images/100 (1).jpg">
+                                                          <?php
+                                                           $Medicine_number=1;
+                                                           echo'
+                                                             <a href="search_result.php?name='.$Product[$Medicine_number]['name'].'">
+                                                                
+                                                                    <img  class="carasoul_image" src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'"  width="130px">
+                                                                
                                                             </a>
+                                                            ';
+                                                           ?>
                                                         </span>
                                                         <a   href="#" role="button" >
                                                         
                                                         </a>
                                                     </div>
                                                     <div class="item">
-                                                        <span>
-                                                            <a href="#">
-                                                                <img class="carasoul_image" src="images/2_100 (2).jpg">
-                                                            </a></span>
+                                                        <?php
+                                                           $Medicine_number=2;
+                                                           echo'
+                                                            <a href="search_result.php?name='.$Product[$Medicine_number]['name'].'">
+                                                                
+                                                                    <img  class="carasoul_image" src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'"  width="130px">
+                                                                
+                                                            </a>
+                                                            ';
+                                                          ?>
+                                                        </span>
                                                         <a   href="#" role="button" >
                                                           
                                                         </a>
                                                     </div>
                                                     <div class="item">
                                                         <span>
-                                                            <a href="#">
-                                                                <img class="carasoul_image" src="images/100.jpg">
-                                                            </a></span>
+                                                           <?php
+                                                             $Medicine_number=3;
+                                                             echo'
+                                                            <a href="search_result.php?name='.$Product[$Medicine_number]['name'].'">
+                                                                
+                                                                    <img  class="carasoul_image" src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'"  width="130px">
+                                                                
+                                                            </a>
+                                                            ';
+                                                          ?>
+                                                        </span>
                                                         <a  href="#" role="button" >
                                                      
                                                         </a>
                                                     </div>
                                                     <div class="item">
                                                         <span>
-                                                            <a href="#">
-                                                                <img class="carasoul_image" src="images/900 (5).jpg">
-                                                            </a></span>
+                                                          <?php
+                                                             $Medicine_number=4;
+                                                             echo'
+                                                            <a href="search_result.php?name='.$Product[$Medicine_number]['name'].'">
+                                                                
+                                                                    <img  class="carasoul_image" src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'"  width="130px">
+                                                                
+                                                            </a>
+                                                            ';
+                                                          ?>
+                                                        </span>
                                                         <a   href="#" role="button" >
                                                           
                                                         </a>
                                                     </div>
                                                     <div class="item">
                                                         <span>
-                                                            <a href="#">
-                                                                <img class="carasoul_image" src="images/aspercreme-odor-free-therapy.jpg">
-                                                            </a></span>
+                                                          <?php
+                                                             $Medicine_number=5;
+                                                             echo'
+                                                            <a href="search_result.php?name='.$Product[$Medicine_number]['name'].'">
+                                                                
+                                                                    <img  class="carasoul_image" src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'"  width="130px">
+                                                                
+                                                            </a>
+                                                            ';
+                                                          ?>
+                                                        </span>
                                                         <a   href="#" role="button" >
                                                            
                                                         </a>
@@ -359,7 +407,16 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                                     <div class="item">
                                                         <span>
                                                             <a href="#">
-                                                                <img class="carasoul_image" src="images/aaa.jpg">
+                                                              <?php
+                                                               $Medicine_number=6;
+                                                               echo'
+                                                               <a href="search_result.php?name='.$Product[$Medicine_number]['name'].'">
+                                                                
+                                                                    <img  class="carasoul_image" src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'"  width="130px">
+                                                                
+                                                               </a>
+                                                                ';
+                                                              ?>
                                                             </a></span>
                                                         <a   href="#" role="button" >
                                                           
@@ -368,33 +425,57 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                                
                                                     <div class="item">
                                                         <span>
-                                                            <a href="#">
-                                                                <img class="carasoul_image" src="images/900 (12).jpg">
-                                                            </a></span>
+                                                          <?php
+                                                             $Medicine_number=7;
+                                                             echo'
+                                                            <a href="search_result.php?name='.$Product[$Medicine_number]['name'].'">
+                                                                
+                                                                    <img  class="carasoul_image" src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'"  width="130px">
+                                                                
+                                                            </a>
+                                                            ';
+                                                          ?>
+                                                        </span>
                                                         <a   href="#" role="button" >
                                                            
                                                         </a>
                                                     </div>
                                                     <div class="item">
                                                         <span>
-                                                            <a href="#">
-                                                                <img class="carasoul_image" src="images/900 (13).jpg">
-                                                            </a></span>
+                                                           <?php
+                                                             $Medicine_number=8;
+                                                             echo'
+                                                              <a href="search_result.php?name='.$Product[$Medicine_number]['name'].'">
+                                                                
+                                                                    <img  class="carasoul_image" src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'"  width="130px">
+                                                                
+                                                              </a>
+                                                              ';
+                                                           ?>
+                                                        </span>
                                                         <a   href="#" role="button" >
                                                            
                                                         </a>
                                                     </div>
                                                     <div class="item">
                                                         <span>
-                                                            <a href="#">
-                                                                <img class="carasoul_image" src="images/900 (14).jpg">
-                                                            </a></span>
+                                                           <?php
+                                                             $Medicine_number=9;
+                                                             echo'
+                                                             <a href="search_result.php?name='.$Product[$Medicine_number]['name'].'">
+                                                                
+                                                                    <img  class="carasoul_image" src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'"  width="130px">
+                                                                
+                                                             </a>
+                                                             ';
+                                                           ?>
+                                                        </span>
                                                         <a   href="#" role="button" >
                                                            
                                                         </a>
                                                     </div>
                                                 </div>
-
+       <!---------------------------------------------------------Today Bestsellers---------------------------------------------->
                                                 <script>
                                                     $(document).ready(function () {
                                                         $('.owl-carousel').owlCarousel({

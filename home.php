@@ -434,11 +434,15 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                 </div>
                                 <!----content_1 End--!-->
 
-
+                                
                                 <!----content_2 For New Products--!-->
-                                <form action="#" method="GET">
+                                <?php
+                            
+                             $Medicine_number=0;
+                             echo'
+                 <form action="search_result.php" method="GET" >
                                 <div class="contentText">
-                                    <h1>New Products For March</h1>
+                                    <h1>New Products </h1>
                                     <div class="row margin-top product-layout_width">
                                         <div class="product-layout  col-md-4 col-sm-6 col-xs-12">
                                             <div class="product-thumb-height">
@@ -446,32 +450,31 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                                     <ul>
                                                         <li class="li_product_title">
                                                             <div class="product_title">
-                                                    <a href="#" >Natralia Eczema & Psoriasis Cream</a>
+                                                                  <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'" >'.$Product[$Medicine_number]['name'].'</a>
                                                             </div></li>
+
                                                         <li class="li_product_image">
                                                             <div class="image">
-                                                                <a href="#">
-                                                                    <img src="images/2_100 (2).jpg" class="img-responsive"  />
+                                                                <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'">
+                                                                    <img src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'" class="img-responsive"  />
                                                                 </a>
 
                                                             </div>
                                                         </li>
                                                         <li class="li_product_price">
                                                             <span class="old_price1"></span>
-                                                            <span class="new_price1">€134.00</span>
+                                                            <span class="new_price1">€'.$Product[$Medicine_number]['price'].'</span>
                                                             <span class="saving1"></span><li>
                                                         <li class="li_product_desc">
                                                             <div class="caption">
                                                                 <p>
-                                                                Relief of skin irritation
-                                                               Aids itching, redness, flaking & scaling
-                                                               Fortified with traditional herbs
+                                                                '.$Product[$Medicine_number]['pro_desc'].'
 
                                                                 </p>
                                                             </div>
                                                         </li>
                                                         <li class="li_product_buy_button">
-                                        <a class="btn btn-default" id="but" href="#" role="button" >
+                                                            <a class="btn btn-default" id="but" href="search_result.php?&name='.$Product[$Medicine_number++]['name'].'" role="button" >
                                                                 Buy Now!
                                                             </a>
                                                             <div class="pull-right">
@@ -483,38 +486,38 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                                 </div>
                                             </div>
                                         </div>
+                                       
                                         <div class="product-layout  col-md-4 col-sm-6 col-xs-12">
                                             <div class="product-thumb-height">
                                                 <div class="product-thumb transition">
                                                     <ul>
                                                         <li class="li_product_title">
                                                             <div class="product_title">
-                                                                <a href="#">Kaopectate Anti-Diarrheal Upset Stomach Reliever Liquid</a>
+                                                                  <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'" >'.$Product[$Medicine_number]['name'].'</a>
                                                             </div></li>
+
                                                         <li class="li_product_image">
                                                             <div class="image">
-                                                                <a href="#">
-                                                                    <img src="images/GUEST_b8e82f6b-e0d9-4dde-a745-5224e6af575d.jpg" width="120px" class="img-responsive" width="47" height="100" />        
+                                                                <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'">
+                                                                    <img src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'" class="img-responsive"  />
                                                                 </a>
 
                                                             </div>
                                                         </li>
                                                         <li class="li_product_price">
                                                             <span class="old_price1"></span>
-                                                            <span class="new_price1">€21.00</span>
+                                                            <span class="new_price1">€'.$Product[$Medicine_number]['price'].'</span>
                                                             <span class="saving1"></span><li>
                                                         <li class="li_product_desc">
                                                             <div class="caption">
                                                                 <p>
-                                                                Relieves diarrhea
-                                                                For nausea & upset stomach
-                                                                With electrolytes to help you recover
+                                                                '.$Product[$Medicine_number]['pro_desc'].'
 
                                                                 </p>
                                                             </div>
                                                         </li>
                                                         <li class="li_product_buy_button">
-                                                            <a class="btn btn-default" id="but" href="#" role="button" >
+                                                            <a class="btn btn-default" id="but" href="search_result.php?&name='.$Product[$Medicine_number++]['name'].'" role="button" >
                                                                 Buy Now!
                                                             </a>
                                                             <div class="pull-right">
@@ -526,38 +529,38 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         <div class="product-layout  col-md-4 col-sm-6 col-xs-12">
                                             <div class="product-thumb-height">
                                                 <div class="product-thumb transition">
                                                     <ul>
                                                         <li class="li_product_title">
                                                             <div class="product_title">
-                                                                <a href="#">Pepto-Bismol Upset Stomach Reliever/Antidiarrheal Chewable Tablets </a>
+                                                                  <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'" >'.$Product[$Medicine_number]['name'].'</a>
                                                             </div></li>
+
                                                         <li class="li_product_image">
                                                             <div class="image">
-                                                                <a href="#">
-                                                                    <img src="images/100 (1).jpg"  class="img-responsive" width="100" height="100" />       
+                                                                <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'">
+                                                                    <img src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'" class="img-responsive"  />
                                                                 </a>
 
                                                             </div>
                                                         </li>
                                                         <li class="li_product_price">
                                                             <span class="old_price1"></span>
-                                                            <span class="new_price1">€159.00</span>
+                                                            <span class="new_price1">€'.$Product[$Medicine_number]['price'].'</span>
                                                             <span class="saving1"></span><li>
                                                         <li class="li_product_desc">
                                                             <div class="caption">
                                                                 <p>
-                                                                    Helps to treat upset stomach, heartburn, & indigestion
-                                                                    Helps to treat nausea & diarrhea
-                                                                    Chewable & portable tablets 
+                                                                '.$Product[$Medicine_number]['pro_desc'].'
 
                                                                 </p>
                                                             </div>
                                                         </li>
                                                         <li class="li_product_buy_button">
-                                                            <a class="btn btn-default" id="but" href="#" role="button" >
+                                                            <a class="btn btn-default" id="but" href="search_result.php?&name='.$Product[$Medicine_number++]['name'].'" role="button" >
                                                                 Buy Now!
                                                             </a>
                                                             <div class="pull-right">
@@ -569,37 +572,38 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         <div class="product-layout  col-md-4 col-sm-6 col-xs-12">
                                             <div class="product-thumb-height">
                                                 <div class="product-thumb transition">
                                                     <ul>
                                                         <li class="li_product_title">
                                                             <div class="product_title">
-                                                                <a href="#">Aspercreme Creme with Lidocaine</a>
+                                                                  <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'" >'.$Product[$Medicine_number]['name'].'</a>
                                                             </div></li>
+
                                                         <li class="li_product_image">
                                                             <div class="image">
-                                                                <a href="#">
-                                                                    <img src="images/aspercreme-odor-free-therapy.jpg"  class="img-responsive" width="81" height="100" />       
+                                                                <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'">
+                                                                    <img src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'" class="img-responsive"  />
                                                                 </a>
 
                                                             </div>
                                                         </li>
                                                         <li class="li_product_price">
                                                             <span class="old_price1"></span>
-                                                            <span class="new_price1">€26.00</span>
+                                                            <span class="new_price1">€'.$Product[$Medicine_number]['price'].'</span>
                                                             <span class="saving1"></span><li>
                                                         <li class="li_product_desc">
                                                             <div class="caption">
                                                                 <p>
-                                                                    neck & shoulder
-                                                                    Knee & elbow
-                                                                    Hand & wrist
+                                                                '.$Product[$Medicine_number]['pro_desc'].'
+
                                                                 </p>
                                                             </div>
                                                         </li>
                                                         <li class="li_product_buy_button">
-                                                            <a class="btn btn-default" id="but" href="#"role="button" >
+                                                            <a class="btn btn-default" id="but" href="search_result.php?&name='.$Product[$Medicine_number++]['name'].'" role="button" >
                                                                 Buy Now!
                                                             </a>
                                                             <div class="pull-right">
@@ -611,38 +615,38 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         <div class="product-layout  col-md-4 col-sm-6 col-xs-12">
                                             <div class="product-thumb-height">
                                                 <div class="product-thumb transition">
                                                     <ul>
                                                         <li class="li_product_title">
                                                             <div class="product_title">
-                                                                <a href="#">Walgreens Mucus Relief Chest Congestion Immediate-Release Tablets</a>
+                                                                  <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'" >'.$Product[$Medicine_number]['name'].'</a>
                                                             </div></li>
+
                                                         <li class="li_product_image">
                                                             <div class="image">
-                                                                <a href="#">
-                                                                    <img src="images/900 (3).jpg"  class="img-responsive" width="100" height="100" />       
+                                                                <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'">
+                                                                    <img src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'" class="img-responsive"  />
                                                                 </a>
 
                                                             </div>
                                                         </li>
                                                         <li class="li_product_price">
                                                             <span class="old_price1"></span>
-                                                            <span class="new_price1">€120.00</span>
+                                                            <span class="new_price1">€'.$Product[$Medicine_number]['price'].'</span>
                                                             <span class="saving1"></span><li>
                                                         <li class="li_product_desc">
                                                             <div class="caption">
                                                                 <p>
-                                                                 Helps loosen phlegm
-                                                                  Makes coughs more productive
-                                                                  Easy to swallow
+                                                                '.$Product[$Medicine_number]['pro_desc'].'
 
                                                                 </p>
                                                             </div>
                                                         </li>
                                                         <li class="li_product_buy_button">
-                                                            <a class="btn btn-default" id="but" href="#" role="button" >
+                                                            <a class="btn btn-default" id="but" href="search_result.php?&name='.$Product[$Medicine_number++]['name'].'" role="button" >
                                                                 Buy Now!
                                                             </a>
                                                             <div class="pull-right">
@@ -654,179 +658,183 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                                 </div>
                                             </div>
                                         </div>
+                                        
                                         <div class="product-layout  col-md-4 col-sm-6 col-xs-12">
-                                            <div class="product-thumb-height">
-                                                <div class="product-thumb transition">
-                                                    <ul>
-                                                        <li class="li_product_title">
-                                                            <div class="product_title">
-                                                                <a href="#">Nature Made Fiber Adult Gummies Assorted Fruit</a>
-                                                            </div></li>
-                                                        <li class="li_product_image">
-                                                            <div class="image">
-                                                                <a href="#">
-                                                                    <img src="images/100.jpg"   class="img-responsive"  />      
-                                                                </a>
+                                        <div class="product-thumb-height">
+                                            <div class="product-thumb transition">
+                                                <ul>
+                                                    <li class="li_product_title">
+                                                        <div class="product_title">
+                                                              <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'" >'.$Product[$Medicine_number]['name'].'</a>
+                                                        </div></li>
 
-                                                            </div>
-                                                        </li>
-                                                        <li class="li_product_price">
-                                                            <span class="old_price1"></span>
-                                                            <span class="new_price1">€199.00</span>
-                                                            <span class="saving1"></span><li>
-                                                        <li class="li_product_desc">
-                                                            <div class="caption">
-                                                                <p>
-                                                                Excellent Source of Fiber
-                                                                Natural fruit flavors
-                                                                Gluten free
-                                                            All natural flavors
-                                                                </p>
-                                                            </div>
-                                                        </li>
-                                                        <li class="li_product_buy_button">
-                                                            <a class="btn btn-default" id="but" href="#" role="button" >
-                                                                Buy Now!
+                                                    <li class="li_product_image">
+                                                        <div class="image">
+                                                            <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'">
+                                                                <img src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'" class="img-responsive"  />
                                                             </a>
-                                                            <div class="pull-right">
-                                                                <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-heart"></i></button>
-                                                                <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-exchange"></i></button>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="product-layout  col-md-4 col-sm-6 col-xs-12">
-                                            <div class="product-thumb-height">
-                                                <div class="product-thumb transition">
-                                                    <ul>
-                                                        <li class="li_product_title">
-                                                            <div class="product_title">
-                                                                <a href="#"> Walgreens Wal-Phed PE Nasal Decongestant Tablets</a>
-                                                            </div></li>
-                                                        <li class="li_product_image">
-                                                            <div class="image">
-                                                                <a href="#">
-                                                                    <img src="images/900 (5).jpg"  class="img-responsive" width="100" height="100" />       
-                                                                </a>
+                                                        </div>
+                                                    </li>
+                                                    <li class="li_product_price">
+                                                        <span class="old_price1"></span>
+                                                        <span class="new_price1">€'.$Product[$Medicine_number]['price'].'</span>
+                                                        <span class="saving1"></span><li>
+                                                    <li class="li_product_desc">
+                                                        <div class="caption">
+                                                            <p>
+                                                            '.$Product[$Medicine_number]['pro_desc'].'
 
-                                                            </div>
-                                                        </li>
-                                                        <li class="li_product_price">
-                                                            <span class="old_price1"></span>
-                                                            <span class="new_price1">€126.00</span>
-                                                            <span class="saving1"></span><li>
-                                                        <li class="li_product_desc">
-                                                            <div class="caption">
-                                                                <p>
-                                                                Relieves sinus congestion & pressure
-                                                                For nasal congestion
-                                                                 Non-drowsy
-
-                                                                </p>
-                                                            </div>
-                                                        </li>
-                                                        <li class="li_product_buy_button">
-                                                            <a class="btn btn-default" id="but" href="#" role="button" >
-                                                                Buy Now!
-                                                            </a>
-                                                            <div class="pull-right">
-                                                                <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-heart"></i></button>
-                                                                <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-exchange"></i></button>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-layout  col-md-4 col-sm-6 col-xs-12">
-                                            <div class="product-thumb-height">
-                                                <div class="product-thumb transition">
-                                                    <ul>
-                                                        <li class="li_product_title">
-                                                            <div class="product_title">
-                                                                <a href="#">Imodium A-D Anti-Diarrheal Caplets</a>
-                                                            </div></li>
-                                                        <li class="li_product_image">
-                                                            <div class="image">
-                                                                <a href="#">
-                                                                    <img src="images/900 (12).jpg"  class="img-responsive" width="100" height="100" />      
-                                                                </a>
-
-                                                            </div>
-                                                        </li>
-                                                        <li class="li_product_price">
-                                                            <span class="old_price1"></span>
-                                                            <span class="new_price1">€119.00</span>
-                                                            <span class="saving1"></span><li>
-                                                        <li class="li_product_desc">
-                                                            <div class="caption">
-                                                                <p>
-                                                                Controls diarrhea symptoms
-                                                                ntidiarrheal loperamide hydrochloride
-                                                                 Doctor-recommended anti-diarrheal brand
-
-                                                                </p>
-                                                            </div>
-                                                        </li>
-                                                        <li class="li_product_buy_button">
-                                                            <a class="btn btn-default" id="but" href="#" role="button" >
-                                                                Buy Now!
-                                                            </a>
-                                                            <div class="pull-right">
-                                                                <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-heart"></i></button>
-                                                                <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-exchange"></i></button>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="product-layout  col-md-4 col-sm-6 col-xs-12">
-                                            <div class="product-thumb-height">
-                                                <div class="product-thumb transition">
-                                                    <ul>
-                                                        <li class="li_product_title">
-                                                            <div class="product_title">
-                                                                <a href="#">Salonpas</a>
-                                                            </div></li>
-                                                        <li class="li_product_image">
-                                                            <div class="image">
-                                                                <a href="#">
-                                                                    <img src="images/91fgK2IAINL._SY355_.jpg"  class="img-responsive" width="100" height="100" />       
-                                                                </a>
-
-                                                            </div>
-                                                        </li>
-                                                        <li class="li_product_price">
-                                                            <span class="old_price1"></span>
-                                                            <span class="new_price1">€171.00</span>
-                                                            <span class="saving1"></span><li>
-                                                        <li class="li_product_desc">
-                                                            <div class="caption">
-                                                                <p>
-                                                                    Sed ut perspiciatis, unde omnis iste natus error sit voluptatem
-                                                                </p>
-                                                            </div>
-                                                        </li>
-                                                        <li class="li_product_buy_button">
-                                                            <a class="btn btn-default" id="but" href="#" role="button" >
-                                                                Buy Now!
-                                                            </a>
-                                                            <div class="pull-right">
-                                                                <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-heart"></i></button>
-                                                                <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-exchange"></i></button>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="li_product_buy_button">
+                                                        <a class="btn btn-default" id="but" href="search_result.php?&name='.$Product[$Medicine_number++]['name'].'" role="button" >
+                                                            Buy Now!
+                                                        </a>
+                                                        <div class="pull-right">
+                                                            <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-heart"></i></button>
+                                                            <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-exchange"></i></button>
+                                                        </div>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
+                                    
+                                    <div class="product-layout  col-md-4 col-sm-6 col-xs-12">
+                                    <div class="product-thumb-height">
+                                        <div class="product-thumb transition">
+                                            <ul>
+                                                <li class="li_product_title">
+                                                    <div class="product_title">
+                                                          <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'" >'.$Product[$Medicine_number]['name'].'</a>
+                                                    </div></li>
+
+                                                <li class="li_product_image">
+                                                    <div class="image">
+                                                        <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'">
+                                                            <img src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'" class="img-responsive"  />
+                                                        </a>
+
+                                                    </div>
+                                                </li>
+                                                <li class="li_product_price">
+                                                    <span class="old_price1"></span>
+                                                    <span class="new_price1">€'.$Product[$Medicine_number]['price'].'</span>
+                                                    <span class="saving1"></span><li>
+                                                <li class="li_product_desc">
+                                                    <div class="caption">
+                                                        <p>
+                                                        '.$Product[$Medicine_number]['pro_desc'].'
+
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li class="li_product_buy_button">
+                                                    <a class="btn btn-default" id="but" href="search_result.php?&name='.$Product[$Medicine_number++]['name'].'" role="button" >
+                                                        Buy Now!
+                                                    </a>
+                                                    <div class="pull-right">
+                                                        <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-heart"></i></button>
+                                                        <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-exchange"></i></button>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </form>
+                                
+                                <div class="product-layout  col-md-4 col-sm-6 col-xs-12">
+                                <div class="product-thumb-height">
+                                    <div class="product-thumb transition">
+                                        <ul>
+                                            <li class="li_product_title">
+                                                <div class="product_title">
+                                                      <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'" >'.$Product[$Medicine_number]['name'].'</a>
+                                                </div></li>
+
+                                            <li class="li_product_image">
+                                                <div class="image">
+                                                    <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'">
+                                                        <img src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'" class="img-responsive"  />
+                                                    </a>
+
+                                                </div>
+                                            </li>
+                                            <li class="li_product_price">
+                                                <span class="old_price1"></span>
+                                                <span class="new_price1">€'.$Product[$Medicine_number]['price'].'</span>
+                                                <span class="saving1"></span><li>
+                                            <li class="li_product_desc">
+                                                <div class="caption">
+                                                    <p>
+                                                    '.$Product[$Medicine_number]['pro_desc'].'
+
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="li_product_buy_button">
+                                                <a class="btn btn-default" id="but" href="search_result.php?&name='.$Product[$Medicine_number++]['name'].'" role="button" >
+                                                    Buy Now!
+                                                </a>
+                                                <div class="pull-right">
+                                                    <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-heart"></i></button>
+                                                    <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-exchange"></i></button>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="product-layout  col-md-4 col-sm-6 col-xs-12">
+                            <div class="product-thumb-height">
+                                <div class="product-thumb transition">
+                                    <ul>
+                                        <li class="li_product_title">
+                                            <div class="product_title">
+                                                  <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'" >'.$Product[$Medicine_number]['name'].'</a>
+                                            </div></li>
+
+                                        <li class="li_product_image">
+                                            <div class="image" height = 160px>
+                                                <a href="search_result.php?&name='.$Product[$Medicine_number]['name'].'">
+                                                    <img src="data:image/jpeg;base64,'.base64_encode( $Product[$Medicine_number]['image'] ).'" class="img-responsive"  />
+                                                </a>
+
+                                            </div>
+                                        </li>
+                                        <li class="li_product_price">
+                                            <span class="old_price1"></span>
+                                            <span class="new_price1">€'.$Product[$Medicine_number]['price'].'</span>
+                                            <span class="saving1"></span><li>
+                                        <li class="li_product_desc">
+                                            <div class="caption">
+                                                <p>
+                                                '.$Product[$Medicine_number]['pro_desc'].'
+
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li class="li_product_buy_button">
+                                            <a class="btn btn-default" id="but" href="search_result.php?&name='.$Product[$Medicine_number]['name'].'" role="button" >
+                                                Buy Now!
+                                            </a>
+                                            <div class="pull-right">
+                                                <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-heart"></i></button>
+                                                <button  type="button" class="btn btn-primary wish_button"><i class="fa fa-exchange"></i></button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                   </div>
+                 </div>
+             </form>
+                            ';
+                            ?>
                                 <!----content_2 End--!-->
 
                                 <!----content_3--!-->

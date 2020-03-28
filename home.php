@@ -83,7 +83,7 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                         <div class="login">
                             <a class="btn btn-default reg_button" href="login.php">Login</a> 
                             <a class="btn btn-default reg_button" href="#">Signup</a>
-                            <a class="btn btn-default reg_button" href="#">Logout</a>
+                            <a class="btn btn-default reg_button" href="logout_process.php">Logout</a>
                                         </div>			
                                     </div>
                                 </div> 

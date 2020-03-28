@@ -219,10 +219,15 @@ $category    = $HomeObjects->GetAllCategorys();
                                         <div id="collapseOne" class="panel-collapse collapse in">
                                             <div class="panel-body">
                                                 <div class="infoBoxContents">
+
+<!------------------------------------------------------------------------ Desplay Category Start----------------------------->
+
                                                     <a href="#">Flu Categoory</a>&nbsp;(94)<br />
                                                     <a href="#">Eczema Treatment Category </a>&nbsp;(9)<br />
                                                     <a href="#">Joint Category</a>&nbsp;(5)<br />
                                                   
+<!------------------------------------------------------------------------ Desplay Category End  ----------------------------->
+
                                                 </div>
                                             </div>
                                         </div>

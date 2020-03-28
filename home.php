@@ -1,13 +1,18 @@
 <?php
 
 include_once './Classes/Class_HomeQuery.php';
+include_once './Classes/Class_Category_Query.php';
 
 $HomeObjects;
 
 $Product=array();
+$category=array();
 
 $HomeObjects = new Class_HomeQuery();
 $Product     = $HomeObjects->Get_HomeObjects();
+
+$HomeObjects = new Class_Category_Query();
+$category    = $HomeObjects->GetAllCategorys();
 
 ?>
 

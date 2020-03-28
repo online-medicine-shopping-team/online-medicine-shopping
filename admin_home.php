@@ -432,7 +432,10 @@
 </tr></thead>
 
 <tbody>
-    
+
+<!---------------------------------------------------------  Admin Home View Product Start  ---------------------->
+
+<!---------------------------------------------------------  Admin Home View All User End   ---------------------->
 </tbody>
                     </TABLE>
 
@@ -446,6 +449,7 @@
 
 
                             <!--                                All users Table                             -->
+
                     <div class="panel panel-default">
                          <div class="panel-heading">
                             <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-payment-method" aria-expanded="true">THE USERS <i class="fa fa-caret-down"></i></a></h4>
@@ -468,6 +472,10 @@
 
 <tbody>
 
+<!---------------------------------------------------------  Admin Home View All User Start  ---------------------->
+
+<!---------------------------------------------------------  Admin Home View All User End    ---------------------->
+
 </table>
 
 
@@ -475,7 +483,7 @@
                         </div>
                     </div>
 
-<!------------- All Orders table      ---------------------->
+                                                        <!------------- All Orders table      ---------------------->
 
                       <div class="panel panel-default">
                         <div class="panel-heading">

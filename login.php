@@ -1,3 +1,67 @@
+<?php
+
+ session_start();
+ include_once './Classes/Class_user.php';
+ //include_once './Classes/sign_in_query.php';
+
+ $errormessage="";//Because it inside if statement
+
+ if(isset($_COOKIE['username'])&&isset($_COOKIE['password']))
+ {
+    $username=$_COOKIE['username'];
+    $password=$_COOKIE['password'];
+ }
+
+ if(isset($_POST['login']))
+ {
+  
+   $username=$_POST['username'];
+   $password=$_POST['password'];
+
+
+   if(is_numeric($username))
+   {
+       $errormessage="<font color='red'>Only Characters are allowed</font>";
+   }
+
+   else
+   {
+
+       $user_object =new Class_user();
+       $user_object->set_username($username);
+       $user_object->set_password($password);
+       $return_value=$user_object->login();
+
+       if($return_value){ 
+        
+        $_SESSION['id']=$user_object->get_id();
+        $_SESSION['username']=$user_object->get_username();
+        $_SESSION['password']=$user_object->get_password();
+        $_SESSION['fullname']=$user_object->fullname;
+        $_SESSION['phone']=$user_object->phone;
+        $_SESSION['type']=$user_object->get_user_type();
+        $_SESSION['userid']=$user_object->get_id();
+
+
+       
+       if($_SESSION['type']=='1')
+        header("location:admin_home.php");
+       else
+       header("location:user_account.php");
+       //echo $user_object->phone;
+       exit();
+        }
+        else{
+            echo $return_value;
+              $errormessage="<font color='red'>Invalid username or password,Try again</font>";
+              session_unset();//To Clear and Destroy the session if login again to disable the footer
+        }
+
+   }
+ }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -68,7 +132,7 @@
                                         <div class="login">
                             <a class="btn btn-default reg_button" href="login.php">Login</a> 
                             <a class="btn btn-default reg_button" href="#">Signup</a>
-                            <a class="btn btn-default reg_button" href="#">Logout</a>
+                            <a class="btn btn-default reg_button" href="logout_process.php">Logout</a>
                                         </div>          
                                     </div>
                                 </div> 
@@ -289,8 +353,8 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="copyright">
                                     <!--Do not remove Backlink from footer of the template. To remove it you can purchase the Backlink !-->
-                                    © 2017 All right reserved. Designed by
-                                    <a href="http://www.themevault.net/" target="_blank">ThemeVault.</a>
+                                    © 2020 All right reserved. Designed by
+                                    <a href="#" target="_blank">One+team</a>
                                 </div>
                             </div>
                         </div>

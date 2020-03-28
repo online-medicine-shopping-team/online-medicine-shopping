@@ -1,13 +1,18 @@
 <?php
 
 include_once './Classes/Class_HomeQuery.php';
+include_once './Classes/Class_Category_Query.php';
 
 $HomeObjects;
 
 $Product=array();
+$category=array();
 
 $HomeObjects = new Class_HomeQuery();
 $Product     = $HomeObjects->Get_HomeObjects();
+
+$HomeObjects = new Class_Category_Query();
+$category    = $HomeObjects->GetAllCategorys();
 
 ?>
 
@@ -83,7 +88,7 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                         <div class="login">
                             <a class="btn btn-default reg_button" href="login.php">Login</a> 
                             <a class="btn btn-default reg_button" href="#">Signup</a>
-                            <a class="btn btn-default reg_button" href="#">Logout</a>
+                            <a class="btn btn-default reg_button" href="logout_process.php">Logout</a>
                                         </div>			
                                     </div>
                                 </div> 
@@ -214,10 +219,15 @@ $Product     = $HomeObjects->Get_HomeObjects();
                                         <div id="collapseOne" class="panel-collapse collapse in">
                                             <div class="panel-body">
                                                 <div class="infoBoxContents">
+
+<!------------------------------------------------------------------------ Desplay Category Start----------------------------->
+
                                                     <a href="#">Flu Categoory</a>&nbsp;(94)<br />
                                                     <a href="#">Eczema Treatment Category </a>&nbsp;(9)<br />
                                                     <a href="#">Joint Category</a>&nbsp;(5)<br />
                                                   
+<!------------------------------------------------------------------------ Desplay Category End  ----------------------------->
+
                                                 </div>
                                             </div>
                                         </div>

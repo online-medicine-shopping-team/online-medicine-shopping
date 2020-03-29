@@ -432,10 +432,32 @@
 </tr></thead>
 
 <tbody>
-
-<!---------------------------------------------------------  Admin Home View Product Start  ---------------------->
-
-<!---------------------------------------------------------  Admin Home View All User End   ---------------------->
+     
+     <?php 
+	 // view all product
+        $counter = 0;
+        $productNumber = count($products);  
+        while($counter < $productNumber  )
+        {                          
+            echo "<tr >";
+            echo "<td style='text-align:center'>  ".$products[$counter]['pro_id']."  </td>";
+            echo "<td style='text-align:center'>  ".$products[$counter]['name']."    </td>";
+            echo "<td style='text-align:center'>  ".$products[$counter]['price']."   </td>";
+            echo "<td style='text-align:center'>  ".$products[$counter]['quantity']."</td>";
+            echo "<td style='text-align:center'>  ".$products[$counter]['cat_name']."</td>";
+            echo "<td style='text-align:center'>  ".$products[$counter]['pro_desc']."</td>";
+            echo "<td style='text-align:center'>  ".$products[$counter]['sup_id']."  </td>";
+            echo '
+            <td style="text-align:center">
+             <img src="data:image/jpeg;base64,'.base64_encode( $products[$counter]['image'] ).'" width="70px"> 
+            </td>
+             ';
+            echo '<td><a href="update_medicine_process.php?pro_id='.$products[$counter]['pro_id'].'"><img src="images/update_icon.png" width="35px" ></a>';
+            echo '<td><a href="delete_medicine_process.php?pro_id='.$products[$counter]['pro_id'].'"><img src="images/drop-icon.png" width="35px" ></a>';
+            echo"</tr>"; 
+            $counter++;
+        }
+                        ?>
 </tbody>
                     </TABLE>
 
@@ -449,7 +471,6 @@
 
 
                             <!--                                All users Table                             -->
-
                     <div class="panel panel-default">
                          <div class="panel-heading">
                             <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-payment-method" aria-expanded="true">THE USERS <i class="fa fa-caret-down"></i></a></h4>
@@ -472,10 +493,6 @@
 
 <tbody>
 
-<!---------------------------------------------------------  Admin Home View All User Start  ---------------------->
-
-<!---------------------------------------------------------  Admin Home View All User End    ---------------------->
-
 </table>
 
 
@@ -483,7 +500,7 @@
                         </div>
                     </div>
 
-                                                        <!------------- All Orders table      ---------------------->
+<!------------- All Orders table      ---------------------->
 
                       <div class="panel panel-default">
                         <div class="panel-heading">

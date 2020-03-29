@@ -492,7 +492,25 @@
 </tr></thead>
 
 <tbody>
+<?php
+  $counter = 0;
+  $numberOfUser = count($user);
+  while( $counter < count($user) )
+ {
 
+   echo "<tr >";
+   echo "<td style='text-align:center'>".$user[$counter]['id']."</td>";
+   echo "<td style='text-align:center'>".$user[$counter]['username']."</td>";
+   echo "<td style='text-align:center'>".$user[$counter]['password']."</td>";
+   echo "<td style='text-align:center'>".$user[$counter]['phone']."</td>";
+   echo "<td style='text-align:center'>".$user[$counter]['type']."</td>";
+   echo "<td style='text-align:center'>".$user[$counter]['fullname']."</td>";
+   echo "<td style='text-align:center'>".$user[$counter]['type']."</td>";
+   echo"</tr>";
+   $counter++;
+}
+
+?>
 </table>
 
 

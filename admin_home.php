@@ -6,10 +6,16 @@
 session_start();
 if(!empty($_SESSION))
 {
-
   include_once './Classes/Class_AdminQuery.php';
+
   $adminObject = new Class_AdminQuery();
+
+  //--------------Get_TableProductInfo------------------------------------------------------------------
   $tableProductInfo         = $adminObject->Get_TableProductInfo();
+
+  //--------------GetAllOrder------------------------------------------------------------------
+  $order         = $adminObject->Get_AllOrder();
+
 }
 else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-moz-center;margin-top:170px "> Sorry 404</H1>');}
 ?>
@@ -506,6 +512,27 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
 </tr></thead>
 
 <tbody>
+
+<!----------------------Display all product---------------------------->
+<?php
+  $counter = 0;
+  $numberOfUser = count($order);
+  while( $counter < count($order) )
+   {
+
+    echo "<tr >";
+    echo "<td style='text-align:center'>".$order[$counter]['ord_id']."</td>";
+    echo "<td style='text-align:center'>".$order[$counter]['product_id']."</td>";
+    echo "<td style='text-align:center'>".$order[$counter]['customer_id']."</td>";
+    echo "<td style='text-align:center'>".$order[$counter]['address']."</td>";
+    echo "<td style='text-align:center'>".$order[$counter]['order_date']."</td>";
+
+    echo"</tr>";
+    $counter++;
+
+}
+
+?>
 
 
 </table>

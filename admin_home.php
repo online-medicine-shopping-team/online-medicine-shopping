@@ -1,19 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-session_start();
-if(!empty($_SESSION))
-{
-
-  include_once './Classes/Class_AdminQuery.php';
-  $adminObject = new Class_AdminQuery();
-  //--------------GetTableProductinfo------------------------------------------------------------------
-  $tableProductInfo         = $adminObject->Get_TableProductInfo();
-}
-else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-moz-center;margin-top:170px "> Sorry 404</H1>');}
-?>
-
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -319,8 +306,8 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
 
 
 
-  <form class="form-horizontal" action="./features/enter_product.php" method="post" enctype="multipart/form-data">
-  <?php
+  <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data">
+   <?php
     $_SESSION['COLUMN_NAME']=array();
     for ($counter = 1 ; $counter < count($tableProductInfo); $counter++) 
     { 
@@ -357,6 +344,54 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
     }
    
    ?> 
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="Categories">Categories</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="email" placeholder="" name="cat_name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Medicine Name</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" id="pwd" placeholder="" name="name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Company Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="email" placeholder="" name="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="price">Price</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="price" placeholder="" name="price">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="description">Description</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="pro_desc" placeholder="" name="pro_desc">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Photo Of Medicine</label>
+      <div class="col-sm-10">
+        <input type="file" class="form-control"  name="image">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="price">Supplier</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="price" placeholder="" name="sup_id">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="price">Quntity</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control"  placeholder="" name="quntity">
+      </div>
+    </div>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         <input type="submit" class="form-control"   name="submit"> 
@@ -397,10 +432,32 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
 </tr></thead>
 
 <tbody>
-
-<!---------------------------------------------------------  Admin Home View Product Start  ---------------------->
-
-<!---------------------------------------------------------  Admin Home View All User End   ---------------------->
+     
+     <?php 
+	 // view all product
+        $counter = 0;
+        $productNumber = count($products);  
+        while($counter < $productNumber  )
+        {                          
+            echo "<tr >";
+            echo "<td style='text-align:center'>  ".$products[$counter]['pro_id']."  </td>";
+            echo "<td style='text-align:center'>  ".$products[$counter]['name']."    </td>";
+            echo "<td style='text-align:center'>  ".$products[$counter]['price']."   </td>";
+            echo "<td style='text-align:center'>  ".$products[$counter]['quantity']."</td>";
+            echo "<td style='text-align:center'>  ".$products[$counter]['cat_name']."</td>";
+            echo "<td style='text-align:center'>  ".$products[$counter]['pro_desc']."</td>";
+            echo "<td style='text-align:center'>  ".$products[$counter]['sup_id']."  </td>";
+            echo '
+            <td style="text-align:center">
+             <img src="data:image/jpeg;base64,'.base64_encode( $products[$counter]['image'] ).'" width="70px"> 
+            </td>
+             ';
+            echo '<td><a href="update_medicine_process.php?pro_id='.$products[$counter]['pro_id'].'"><img src="images/update_icon.png" width="35px" ></a>';
+            echo '<td><a href="delete_medicine_process.php?pro_id='.$products[$counter]['pro_id'].'"><img src="images/drop-icon.png" width="35px" ></a>';
+            echo"</tr>"; 
+            $counter++;
+        }
+                        ?>
 </tbody>
                     </TABLE>
 
@@ -414,7 +471,6 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
 
 
                             <!--                                All users Table                             -->
-
                     <div class="panel panel-default">
                          <div class="panel-heading">
                             <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-payment-method" aria-expanded="true">THE USERS <i class="fa fa-caret-down"></i></a></h4>
@@ -437,10 +493,6 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
 
 <tbody>
 
-<!---------------------------------------------------------  Admin Home View All User Start  ---------------------->
-
-<!---------------------------------------------------------  Admin Home View All User End    ---------------------->
-
 </table>
 
 
@@ -448,7 +500,7 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
                         </div>
                     </div>
 
-                                                        <!------------- All Orders table      ---------------------->
+<!------------- All Orders table      ---------------------->
 
                       <div class="panel panel-default">
                         <div class="panel-heading">

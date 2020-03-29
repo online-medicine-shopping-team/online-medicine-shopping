@@ -1,7 +1,7 @@
 <?php
 //if($_SERVER['REQUEST_METHOD']=='POST'){
     session_start();
-    include_once './DBConection/DbConnection.php';
+    include_once '../DBConection/DbConnection.php';
 
     if(isset($_POST['submit']))
     {
@@ -40,7 +40,7 @@ else
     echo "<H1 style='width: 1500px;height: 50px; font-size:100px; text-align :-moz-center;margin-top:170px '>SORRY For Wasting your time : you can't open this page directly</H1>";
 }
 
-    header("location:./admin_home.php");
+    header("location:../admin_home.php");
 ?>
 
 

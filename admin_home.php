@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+<?php
+session_start();
+if(!empty($_SESSION))
+{
+
+  include_once './Classes/Class_AdminQuery.php';
+  $adminObject = new Class_AdminQuery();
+  $tableProductInfo         = $adminObject->Get_TableProductInfo();
+}
+else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-moz-center;margin-top:170px "> Sorry 404</H1>');}
+?>
+
+
+
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -306,7 +321,7 @@
 
 
 
-  <form class="form-horizontal" action="#" method="post" enctype="multipart/form-data">
+  <form class="form-horizontal" action="./features/enter_product.php" method="post" enctype="multipart/form-data">
    <?php
     $_SESSION['COLUMN_NAME']=array();
     for ($counter = 1 ; $counter < count($tableProductInfo); $counter++) 
@@ -344,55 +359,7 @@
     }
    
    ?> 
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="Categories">Categories</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="email" placeholder="" name="cat_name">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Medicine Name</label>
-      <div class="col-sm-10">          
-        <input type="text" class="form-control" id="pwd" placeholder="" name="name">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Company Name</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="email" placeholder="" name="email">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="price">Price</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="price" placeholder="" name="price">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="description">Description</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="pro_desc" placeholder="" name="pro_desc">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="email">Photo Of Medicine</label>
-      <div class="col-sm-10">
-        <input type="file" class="form-control"  name="image">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="price">Supplier</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="price" placeholder="" name="sup_id">
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="price">Quntity</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control"  placeholder="" name="quntity">
-      </div>
-    </div>
-    <div class="form-group">        
+   <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         <input type="submit" class="form-control"   name="submit"> 
        <!-- <button type="submit" class="btn btn-default">Add New Medicine</button>-->

@@ -2,6 +2,10 @@
 include_once './DBConection/DbConnection.php';
  class Class_AdminQuery{
     private $Db_object;
+    
+    public function __construct() {
+        $this->Db_object=new DbConnection();
+    }
     //__________________________________________________________________________________ Get_TableProductInfo
     public function Get_TableProductInfo(){
         $dbName = $this->Db_object->db_name;

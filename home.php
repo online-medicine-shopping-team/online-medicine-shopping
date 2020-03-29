@@ -222,10 +222,17 @@ $category    = $HomeObjects->GetAllCategorys();
 
 <!------------------------------------------------------------------------ Desplay Category Start----------------------------->
 
-                                                    <a href="#">Flu Categoory</a>&nbsp;(94)<br />
-                                                    <a href="#">Eczema Treatment Category </a>&nbsp;(9)<br />
-                                                    <a href="#">Joint Category</a>&nbsp;(5)<br />
-                                                  
+                                                    <?php
+                                                    $counter = 0;
+                                                    while( $counter<count($category))
+                                                    { 
+                                                        echo
+                                                        '
+                                                        <a href="Flucategory.php?cat_name='.$category[$counter]['cat_name'].'"> '.$category[$counter]['cat_name'].' </a><br />
+                                                        ';
+                                                        $counter++;
+                                                    }
+                                                    ?>
 <!------------------------------------------------------------------------ Desplay Category End  ----------------------------->
 
                                                 </div>

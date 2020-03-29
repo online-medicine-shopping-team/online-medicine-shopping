@@ -1,17 +1,11 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of Class_user
+ * the class is just for methods that related to User and connect to database
  *
  * @author Ahmed
  */
-include_once './DBConection/DbConnection.php';
+include_once '../DBConection/DbConnection.php';
 class Class_user {
     private $id;
     private $username;
@@ -67,11 +61,12 @@ class Class_user {
     }
 
     //___________________________________________________________________________________Login
-    public function  login(){
+    public function  login($username , $password){
         
         
-        $this->username=$this->Db_object->clean($this->username);
-        $this->password=$this->Db_object->clean($this->password);//just UserName & Password
+        $this->username=$this->Db_object->clean($username);
+        $this->password=$this->Db_object->clean($password);//just UserName & Password
+
         $select_user_SQL="SELECT * FROM `user`  where username='$this->username' and password='$this->password'";
         
         $select_user_Result=$this->Db_object->select($select_user_SQL);

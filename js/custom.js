@@ -1,9 +1,7 @@
 /*
  Template Name: Medistore
  File Name: custom.js
- Author Name: ThemeVault
- Author URI: http://www.themevault.net/
- License URI: http://www.themevault.net/license/
+ Author Name: Ahmed
  */
 
 

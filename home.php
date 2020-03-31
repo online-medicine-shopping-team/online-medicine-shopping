@@ -86,7 +86,7 @@ $category    = $HomeObjects->GetAllCategorys();
                                 <div class="col-md-6 col-xs-6 wd_auto">
                                     <div class="left">
                                         <div class="login">
-                            <a class="btn btn-default reg_button" href="login.php">Login</a> 
+                            <a class="btn btn-default reg_button" href="login.html">Login</a> 
                             <a class="btn btn-default reg_button" href="#">Signup</a>
                             <a class="btn btn-default reg_button" href="logout_process.php">Logout</a>
                                         </div>			

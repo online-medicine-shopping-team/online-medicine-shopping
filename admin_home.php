@@ -6,16 +6,32 @@
 session_start();
 if(!empty($_SESSION))
 {
+  
   include_once './Classes/Class_AdminQuery.php';
+  $adminObject      = new Class_AdminQuery();
 
-  $adminObject = new Class_AdminQuery();
+  //--------------GetAllProduct------------------------------------------------------------------
+  $products         = $adminObject->Get_AllProduct();
 
-  //--------------Get_TableProductInfo------------------------------------------------------------------
-  $tableProductInfo         = $adminObject->Get_TableProductInfo();
+  //--------------Get_TableProductInfo-----------------------------------------------------------
+  $tableProductInfo = $adminObject->Get_TableProductInfo();
 
-  //--------------GetAllOrder------------------------------------------------------------------
-  $order         = $adminObject->Get_AllOrder();
+  //--------------GetAllOrder--------------------------------------------------------------------
+  $order            = $adminObject->Get_AllOrder();
 
+  //--------------DeleteProduct------------------------------------------------------------------
+  if(!empty($_GET['delete']))
+  {
+                      $adminObject->DeleteProduct($_GET['delete']);
+                      header("location:admin_home.php");
+  }
+  //--------------UpdateProduct------------------------------------------------------------------
+
+  if(isset($_POST['submit']))
+  {
+                     $adminObject->UpdateProduct($_POST , $_SESSION['updateProductID']);
+                     header("location:admin_home.php");
+  }
 }
 else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-moz-center;margin-top:170px "> Sorry 404</H1>');}
 ?>
@@ -35,6 +51,7 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
         <script src="js/owl-carousel.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/custom.js"></script>
+
     </head>
     <body>
         <div class="container">
@@ -86,7 +103,7 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
                                         <div class="pl_0 col-md-6 col-xs-6">
                                             <div class="dropdown btn-group">
                                                
-             <p style="margin-top: 17px; color: #8EBE08 ;font-size:20px">    WElCOME: </p>
+             <p style="margin-top: 17px; color: #8EBE08 ;font-size:20px">   WElCOME: <?php  echo $_SESSION['username'];?></p>
                             
 
                                             </div>
@@ -127,7 +144,7 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
                                         <ul class="nav navbar-nav site_nav_menu1"  >
                                             <li class="first "><a href="home.html">Home</a></li>
                                     
-                                <li><a href="#">Logout <img src="images/exit-icon-3.png" width="20px"></a></li>
+                                <li><a href="./features/logout_process.php">Logout <img src="images/exit-icon-3.png" width="20px"></a></li>
         
 
 
@@ -326,11 +343,22 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
                             <div class="panel-body">
 
 
-
-  <form class="form-horizontal" action="./features/enter_product.php" method="post" enctype="multipart/form-data">
+<!-------------------------------------------ADD Product Form  ----------------------------------------------------->
+ <?php
+                if(empty($_GET['update']))
+                {
+                echo '<form class="form-horizontal"  action="./features/enter_product.php" method="post" enctype="multipart/form-data">';
+                }
+                else
+                {
+                echo '<form class="form-horizontal"  action="admin_home.php" method="post" enctype="multipart/form-data">';
+                }
+ ?>
+  
    <?php
+    $counttableProductInfo =  count($tableProductInfo);
     $_SESSION['COLUMN_NAME']=array();
-    for ($counter = 1 ; $counter < count($tableProductInfo); $counter++) 
+    for ($counter = 1 ; $counter < $counttableProductInfo; $counter++) 
     { 
 
         $COLUMN_NAME = $tableProductInfo[$counter]['COLUMN_NAME']; 
@@ -345,7 +373,7 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
             <div class="form-group">
                 <label class="control-label col-sm-2" for="email"> '.$COLUMN_NAME.' </label>
                 <div class="col-sm-10">
-                   <input type="file" class="form-control"  name="'.$COLUMN_NAME.'">
+                   <input type="file" class="form-control" id="'.$COLUMN_NAME.'" name="'.$COLUMN_NAME.'">
                 </div>
             </div>
             ';
@@ -363,15 +391,15 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
         }
         
     }
-   
    ?> 
    <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <input type="submit" class="form-control"   name="submit"> 
+        <input type="submit" class="form-control"  id="SubmitButtonQuery"  name="submit"> 
        <!-- <button type="submit" class="btn btn-default">Add New Medicine</button>-->
       </div>
     </div>
   </form>
+<!-------------------------------------------ADD Product Form end  ----------------------------------------------------->
 </div>                    
                                 
                             </div>
@@ -394,6 +422,7 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
     <th style="text-align: center; width: 50px"> ID</th>
     <th style="text-align: center;"> Name </th>
     <th style="text-align: center;"> PRICE:$ </th>
+    <th style="text-align: center;"> OLDPRICE:$ </th>
     <th style="text-align: center;"> QUANTITY </th>
     <th style="text-align: center;"> CATEGORY </th>
     <th style="text-align: center;"> DESCREPTION </th>
@@ -406,27 +435,30 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
 
 <tbody>
      
-     <?php 
+<?php 
 	 // view all product
         $counter = 0;
+        $row = 1;
         $productNumber = count($products);  
         while($counter < $productNumber  )
-        {                          
+        {    
+            $row = 1;                      
             echo "<tr >";
-            echo "<td style='text-align:center'>  ".$products[$counter]['pro_id']."  </td>";
-            echo "<td style='text-align:center'>  ".$products[$counter]['name']."    </td>";
-            echo "<td style='text-align:center'>  ".$products[$counter]['price']."   </td>";
-            echo "<td style='text-align:center'>  ".$products[$counter]['quantity']."</td>";
-            echo "<td style='text-align:center'>  ".$products[$counter]['cat_name']."</td>";
-            echo "<td style='text-align:center'>  ".$products[$counter]['pro_desc']."</td>";
-            echo "<td style='text-align:center'>  ".$products[$counter]['sup_id']."  </td>";
-            echo '
-            <td style="text-align:center">
-             <img src="data:image/jpeg;base64,'.base64_encode( $products[$counter]['image'] ).'" width="70px"> 
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['pro_id']."  </td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['name']."    </td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['price']."   </td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['old_price']."   </td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['quantity']."</td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['cat_name']."</td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['pro_desc']."</td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['sup_id']."  </td>";
+            echo "
+            <td style='text-align:center'>
+             <img id =' ".$products[$counter]['pro_id'].$row++." ' src='data:image/jpeg;base64,".base64_encode( $products[$counter]['image'] )."' width='70px'> 
             </td>
-             ';
-            echo '<td><a href="update_medicine_process.php?pro_id='.$products[$counter]['pro_id'].'"><img src="images/update_icon.png" width="35px" ></a>';
-            echo '<td><a href="delete_medicine_process.php?pro_id='.$products[$counter]['pro_id'].'"><img src="images/drop-icon.png" width="35px" ></a>';
+             ";
+            echo '<td><a href="admin_home.php?update='.$products[$counter]['pro_id'].'"><img src="images/update_icon.png" width="35px" ></a>';
+            echo '<td><a href="admin_home.php?delete='.$products[$counter]['pro_id'].'"><img src="images/drop-icon.png" width="35px" ></a>';
             echo"</tr>"; 
             $counter++;
         }
@@ -441,6 +473,48 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
                             </div>
                         </div>
                     </div>
+
+<!-------------------------------------------Script for Fill with the product ----------------------------------------------------->
+               <?php
+               if(!empty($_GET['update']))
+               {
+                   $id = $_GET['update'];
+                   $_SESSION['updateProductID'] = $id ;
+                   $counterone = 2;
+                for ($counter = 1 ; $counter < $counttableProductInfo; $counter++) 
+                { 
+            
+                    $COLUMN_NAME = $tableProductInfo[$counter]['COLUMN_NAME']; 
+                    $COLUMN_TYPE = $tableProductInfo[$counter]['DATA_TYPE'];
+                    $s ="blob";
+                    if(preg_match("/{$s}/i", $COLUMN_TYPE))
+                    {
+                        echo
+                        "
+                         <script>
+                         document.getElementById('".$COLUMN_NAME."').value = document.getElementById('".$id."".$counterone++."').value ;
+                         </script>
+                        ";
+                    }
+                    else
+                    {
+                        echo
+                        "
+                         <script>
+                         document.getElementById('".$COLUMN_NAME."').value = document.getElementById('".$id."".$counterone++."').innerHTML ;
+                         </script>
+                        ";
+                    }
+                }
+                echo "
+                <script>
+                document.getElementById('SubmitButtonQuery').value = 'Update Query' ;
+                </script>
+               ";
+
+               }
+                ?>
+<!-------------------------------------------Script for Fill with the product ----------------------------------------------------->
 
 
                             <!--                                All users Table                             -->

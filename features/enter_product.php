@@ -17,7 +17,7 @@
 
        $db_object=new DbConnection();
         @ ($name=$_FILES['image']['name']) or die('<H1 style="width: 1500px;height: 50px; font-size:100px; text-align :-moz-center;margin-top:170px ">SORRY For Wasting your time plz Upload image and write all information </H1>');
-       if(isset($name)){
+        if(isset($name)){
         //_______________________________________________________________________Image
 
         $name=explode('.',$name);

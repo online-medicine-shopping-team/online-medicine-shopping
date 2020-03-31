@@ -55,7 +55,7 @@ class DbConnection {
     //return  Assoc Array mysqli_result Object with the num of row and field
     public function database_query($database_query) {
         $this->encode();
-        $query_result = mysqli_query($this->database_connection,$database_query);
+        $query_result = mysqli_query($this->database_connection,$database_query) or die ($mysqli->error());
         return $query_result;
     }
 
@@ -108,6 +108,7 @@ class DbConnection {
             }
             $count++;
         }
+
         //return $sql;
         if($this->database_query($sql)){
             return true;

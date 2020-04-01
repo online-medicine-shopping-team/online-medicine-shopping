@@ -75,7 +75,7 @@
             } 
 
         }
-        //$query.= " where `pro_id` =" . "$id"; 
+        $query.= " where `pro_id` =" . "$id"; 
         $this->Db_object->Update($query);
         // @ ($name=$_FILES['image']['name'];) 
         // if(isset($name))

@@ -10,6 +10,9 @@ if(!empty($_SESSION))
   include_once './Classes/Class_AdminQuery.php';
   $adminObject      = new Class_AdminQuery();
 
+  //--------------GetAlluser------------------------------------------------------------------
+  $user          = $adminObject->Get_AllUsers();
+
   //--------------GetAllProduct------------------------------------------------------------------
   $products         = $adminObject->Get_AllProduct();
 
@@ -373,7 +376,7 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
             <div class="form-group">
                 <label class="control-label col-sm-2" for="email"> '.$COLUMN_NAME.' </label>
                 <div class="col-sm-10">
-                   <input type="file" class="form-control" id="'.$COLUMN_NAME.'" name="'.$COLUMN_NAME.'">
+                   <input type="file" class="form-control" id="'.$COLUMN_NAME.'" name="'.$COLUMN_NAME.'"  >
                 </div>
             </div>
             ';
@@ -384,7 +387,7 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
            <div class="form-group">
                  <label class="control-label col-sm-2" for="'.$COLUMN_NAME.'">'.$COLUMN_NAME.'</label>
                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="'.$COLUMN_NAME.'" placeholder="" name="'.$COLUMN_NAME.'">
+                    <input type="text" class="form-control" id="'.$COLUMN_NAME.'"  name="'.$COLUMN_NAME.'" required >
                  </div>
             </div>
             ';   
@@ -444,14 +447,14 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
         {    
             $row = 1;                      
             echo "<tr >";
-            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['pro_id']."  </td>";
-            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['name']."    </td>";
-            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['price']."   </td>";
-            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['old_price']."   </td>";
-            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['quantity']."</td>";
-            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['cat_name']."</td>";
-            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['pro_desc']."</td>";
-            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>  ".$products[$counter]['sup_id']."  </td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>".$products[$counter]['pro_id']."</td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>".$products[$counter]['name']."</td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>".$products[$counter]['price']."</td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>".$products[$counter]['old_price']."</td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>".$products[$counter]['quantity']."</td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>".$products[$counter]['cat_name']."</td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>".$products[$counter]['pro_desc']."</td>";
+            echo "<td id ='".$products[$counter]['pro_id'].$row++."' style='text-align:center'>".$products[$counter]['sup_id']."</td>";
             echo "
             <td style='text-align:center'>
              <img id =' ".$products[$counter]['pro_id'].$row++." ' src='data:image/jpeg;base64,".base64_encode( $products[$counter]['image'] )."' width='70px'> 
@@ -508,7 +511,7 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
                 }
                 echo "
                 <script>
-                document.getElementById('SubmitButtonQuery').value = 'Update Query' ;
+                document.getElementById('SubmitButtonQuery').value = 'Update' ;
                 </script>
                ";
 

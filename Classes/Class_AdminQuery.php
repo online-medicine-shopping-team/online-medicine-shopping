@@ -17,6 +17,13 @@
         return $this->Db_object->select($query);
     
     }
+    //__________________________________________________________________________________ Get_AllUser
+    public function Get_AllUsers(){
+
+        $query="SELECT * FROM `user`";
+        return $this->Db_object->select($query);
+
+    }
     //__________________________________________________________________________________ Get_AllOrder
     public function Get_AllOrder()
     {

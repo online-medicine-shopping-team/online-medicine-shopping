@@ -1,4 +1,33 @@
-﻿<!DOCTYPE html>
+﻿
+<?php 
+
+include_once './Classes/Class_registerQuery.php';
+include_once './features/notification.php';
+
+
+$registerObjects = new Class_registerQuery();
+session_start();
+
+
+
+if(isset($_POST['save'])){
+$conn=mysqli_connect("localhost","root","","online_medicine_shopping"); 
+$user_name=$_POST['user_name'];
+$_SESSION['user_name']=$user_name;
+$newpassword=$_POST['newpassword'];
+$phone=$_POST['telephone'];
+$fname=$_POST['firstname'];
+$lname=$_POST['lastname'];
+$email=$_POST['newemail'];
+$_SESSION['email']=$email;
+
+
+recieve_confirmation_email_for_register_subjects($email,$fname);
+$registerObjects->signup($newpassword, $user_name, $phone, $fname,$lname,$email);
+
+} 
+  ?>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         

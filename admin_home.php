@@ -20,7 +20,7 @@ if(!empty($_SESSION))
   $tableProductInfo = $adminObject->Get_TableProductInfo();
 
   //--------------GetAllOrder--------------------------------------------------------------------
-  $order            = $adminObject->Get_AllOrder();
+  //$order            = $adminObject->Get_AllOrder();
 
   //--------------DeleteProduct------------------------------------------------------------------
   if(!empty($_GET['delete']))
@@ -597,15 +597,15 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
   while( $counter < count($order) )
    {
 
-    echo "<tr >";
-    echo "<td style='text-align:center'>".$order[$counter]['ord_id']."</td>";
-    echo "<td style='text-align:center'>".$order[$counter]['product_id']."</td>";
-    echo "<td style='text-align:center'>".$order[$counter]['customer_id']."</td>";
-    echo "<td style='text-align:center'>".$order[$counter]['address']."</td>";
-    echo "<td style='text-align:center'>".$order[$counter]['order_date']."</td>";
+    // echo "<tr >";
+    // echo "<td style='text-align:center'>".$order[$counter]['ord_id']."</td>";
+    // echo "<td style='text-align:center'>".$order[$counter]['product_id']."</td>";
+    // echo "<td style='text-align:center'>".$order[$counter]['customer_id']."</td>";
+    // echo "<td style='text-align:center'>".$order[$counter]['address']."</td>";
+    // echo "<td style='text-align:center'>".$order[$counter]['order_date']."</td>";
 
-    echo"</tr>";
-    $counter++;
+    // echo"</tr>";
+    // $counter++;
 
 }
 

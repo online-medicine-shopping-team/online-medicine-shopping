@@ -24,14 +24,14 @@
         return $this->Db_object->select($query);
 
     }
-    //__________________________________________________________________________________ Get_AllOrder
-    public function Get_AllOrder()
-    {
+    // //__________________________________________________________________________________ Get_AllOrder
+    // public function Get_AllOrder()
+    // {
 
-        $query="SELECT * FROM `order`";
-        return $this->Db_object->select($query);
+    //     $query="SELECT * FROM `order`";
+    //     return $this->Db_object->select($query);
 
-    }
+    // }
     //__________________________________________________________________________________ Get_TableProductInfo
     public function Get_TableProductInfo()
     {
@@ -84,14 +84,7 @@
         }
         $query.= " where `pro_id` =" . "$id"; 
         $this->Db_object->Update($query);
-        // @ ($name=$_FILES['image']['name'];) 
-        // if(isset($name))
-        // {
-        //     $image=addslashes(file_get_contents($_FILES['image']['tmp_name']))
-        // }
-    //     echo "<pre>";
-    //    print_r($_FILES);
-    //    echo "</pre>";
+
 
     }
     

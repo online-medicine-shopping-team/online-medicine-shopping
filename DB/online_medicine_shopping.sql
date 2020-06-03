@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2020 at 06:53 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.27
+-- Generation Time: Jun 03, 2020 at 02:13 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,8 +19,34 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `test`
+-- Database: `online_medicine_shopping`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `cart_id` int(15) NOT NULL,
+  `products_number` int(15) NOT NULL,
+  `product_1` varchar(50) NOT NULL,
+  `product_2` varchar(50) NOT NULL,
+  `total_price` int(15) NOT NULL,
+  `user_id` int(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `id` int(15) NOT NULL,
+  `address` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -143,21 +169,37 @@ CREATE TABLE `user` (
   `username` varchar(30) NOT NULL,
   `phone` int(11) NOT NULL,
   `type` int(11) NOT NULL,
-  `fullname` varchar(30) NOT NULL
+  `fullname` varchar(30) NOT NULL,
+  `email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `password`, `username`, `phone`, `type`, `fullname`) VALUES
-(1, '789', 'Admin', 123456789, 1, 'Admin'),
-(2, '456', 'Customer', 147852, 2, 'CustomerName'),
-(3, '000', 'Ahmed', 147, 2, 'Ahmed .Ali');
+INSERT INTO `user` (`id`, `password`, `username`, `phone`, `type`, `fullname`, `email`) VALUES
+(1, '789', 'Admin', 123456789, 1, 'Admin', NULL),
+(2, '456', 'Customer', 147852, 2, 'CustomerName', NULL),
+(3, '000', 'Ahmed', 147, 2, 'Ahmed .Ali', NULL),
+(32, 'asd', 'ahmed', 2147483647, 2, 'Ahmed.Mohamed', 'ahmed.m.abdellah99@gmail.com'),
+(33, 'dsa', 'ahmed', 2147483647, 2, 'Ahmed.Mohamed', 'ahmed.m.abdellah99@gmail.com');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`cart_id`),
+  ADD KEY `cart_ibfk_1` (`user_id`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `order`
@@ -207,16 +249,22 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `cart_id` int(15) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `ord_id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ord_id` int(15) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `permission`
 --
 ALTER TABLE `permission`
-  MODIFY `per_number` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `per_number` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -234,11 +282,17 @@ ALTER TABLE `type_lookup`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order`

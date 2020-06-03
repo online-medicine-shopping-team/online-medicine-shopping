@@ -1,6 +1,5 @@
 <?php
-//require('includes/config.php');
-//include_once 'DBConection/DbConnection.php';
+
 session_start();
 include_once './Classes/Class_SearchRresult_query.php';
 $ob_SearchRresult;

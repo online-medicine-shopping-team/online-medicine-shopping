@@ -167,7 +167,7 @@ else{ die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-
             <div class="row" id="search_manu" style="margin-top: 10px">
                 <div class="col-md-6 col-xs-12">
                           <!--             SEARCHING FORM            -->
-                    <form  name="quick_find" method="GET" action="#">
+                    <form  name="quick_find" method="GET" action="search_result.php">
                         <div class="form-group">
                             <div class="input-group">
                                 <input type="text" placeholder="Enter search keywords here" name="s" class="form-control input-lg" id="inputGroup"/>

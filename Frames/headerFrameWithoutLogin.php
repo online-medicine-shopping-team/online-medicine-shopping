@@ -42,9 +42,9 @@
                                     width="26" height="27" /></a>
                         </div>
                           <span>Your cart:</span>
-                          <span class="cart_total"> € <?php echo $_SESSION['total'] ?>
+                          <span class="cart_total"> € <?php echo @$_SESSION['total']  ;  ?>
 
-                          <span class="cart_items">( <?php echo count($_SESSION['cart']) ?> 
+                          <span class="cart_items">( <?php echo @count($_SESSION['cart']) ?> 
                             items)</span>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 <?php
 session_start();
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -74,6 +74,7 @@ session_start();
                 <h1>Shopping Cart
                 </h1>
             </div>
+
             <!--       view cart content          -->
             <div id="page">
                 <!-- start content -->
@@ -85,8 +86,15 @@ session_start();
 
                         <form action="features/cart_processes.php" method="POST">
                             <table width="100%" border="1" style="text-align: center; border-color:gray">
-
-
+                                <tr>
+                                    <Td> <b>No
+                                    <td> <b>Category
+                                    <td> <b>Product
+                                    <td> <b>Quantity
+                                    <td> <b>Rate
+                                    <td> <b>Price
+                                    <td> <b>Delete
+                                </tr>
 
                                 <?php
 
@@ -94,13 +102,24 @@ session_start();
                                 $i = 1;
 
 
-
                                 if (isset($_SESSION['cart'])) {
-
 
                                     foreach ($_SESSION['cart'] as $id => $x) {
 
+                                        echo '
+                                            <tr>
+                                            <Td> ' . $i . ' 
+                                             <td> ' . $x['cat_name'] . '
+                                            <td> ' . $x['name'] . '
+                                          
+                            <td> <input style="border:none ;text-align:center" type="number"  min="0" size="1" value="' . $x['qty'] . '" name="' . $id . '">
+                                            <td> ' . $x['price'] . '
+                                            <td> ' . ($x['qty'] * $x['price']) . '
+                                            <td> <a href="features/cart_processes.php?id=' . $id . '"><img src="images/drop-icon.png" width=18px></a>
+                                        </tr>
+                                        ';
 
+                                        echo "<br>  ";
 
                                         $total = $total + ($x['qty'] * $x['price']);
                                         $i++;
@@ -146,19 +165,16 @@ session_start();
                 <!-- end content -->
 
 
-
-
-
                 <div class="buttons">
                     <div class="pull-left"><a class="btn btn-default" href="home.php"><i class="fa fa-caret-right"></i>&nbsp;Continue Shopping</a></div>
-                    <div class="pull-right"><a class="btn btn-primary reg_button" href="">Confirm & Checkout</a></div>
+                    <div class="pull-right"><a class="btn btn-primary reg_button" href="checkout.php">Confirm & Checkout</a></div>
                 </div>
             </div>
         </div>
 
-    <!--Footer-->
-    <?php include('Frames\footer.html'); ?>
-    
+        <!--Footer-->
+        <?php include('Frames\footer.html'); ?>
+
         <a style="display: none" href="javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">
             <i class="fa fa-chevron-up"></i>
         </a>

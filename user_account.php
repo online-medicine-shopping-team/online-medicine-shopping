@@ -1,4 +1,32 @@
-<!---->
+<?php
+session_start();
+include_once './Classes/Class_userAccount_Query.php';
+$userAccountobject = new Class_userAccount_Query();
+$Orders = $userAccountobject->GetUserOrders($_SESSION['userid']);
+$Products = [];
+// $ProductsRow = [];
+foreach ($Orders as $order) 
+{
+    $Product_inOrder = $userAccountobject->GetOrderProduct($order['ord_id']);
+
+    foreach ($Product_inOrder as $product )
+    {
+        $singleProduct = $userAccountobject->GetProduct($product['pro_id']);
+        $ProductsRow['ord_id']     = $order['ord_id'];
+        $ProductsRow['order_date'] = $order['order_date'];
+        $ProductsRow['TotalPrice'] = $order['TotalPrice'];
+        $ProductsRow['product_quantity'] = $product['product_quantity'];
+        $ProductsRow['name']       = $singleProduct[0]['name'];
+        $ProductsRow['price']       = $singleProduct[0]['price'];
+
+        $Products[] = $ProductsRow;
+        $ProductsRow = [];
+    }
+
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,8 +61,7 @@
 
                     <div id="nav">
                         <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"
-                                style="background: #8EBE08; border: none; margin-right: 0">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" style="background: #8EBE08; border: none; margin-right: 0">
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
@@ -67,8 +94,7 @@
                                         <div class="dropdown btn-group">
 
                                             <p style="margin-top: 17px; color: #8EBE08 ;font-size:40px">
-                                                WElCOME:
-                                                <!-- -->
+                                                WElCOME:<?php echo $_SESSION['username']; ?>
                                             </p>
 
                                         </div>
@@ -92,8 +118,7 @@
                         <nav role="navigation" class="navbar navbar-inverse" id="nav_show">
                             <div id="nav">
                                 <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                        data-target="#myNavbar">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
@@ -108,11 +133,10 @@
                                 </div>
                                 <div class="collapse navbar-collapse" id="myNavbar">
                                     <ul class="nav navbar-nav site_nav_menu1">
-                                        <li class="first "><a href="home.html">Home</a></li>
+                                        <li class="first "><a href="home.php">Home</a></li>
 
                                         <li><a href="cart.php">My Cart</a></li>
-                                        <li><a href="logout_process.php">Logout <img src="images/exit-icon-3.png"
-                                                    width="20px"></a></li>
+                                        <li><a href="logout_process.php">Logout <img src="images/exit-icon-3.png" width="20px"></a></li>
 
 
 
@@ -134,11 +158,9 @@
                 <form name="quick_find" method="GET" action="search_result.php">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" placeholder="Enter search keywords here" name="s"
-                                class="form-control input-lg" id="inputGroup" />
+                            <input type="text" placeholder="Enter search keywords here" name="s" class="form-control input-lg" id="inputGroup" />
                             <span class="input-group-addon">
-                                <input type="submit" id="x" value="Search"
-                                    style="color:white ;background-color:#8EBE08;border:none;" />
+                                <input type="submit" id="x" value="Search" style="color:white ;background-color:#8EBE08;border:none;" />
 
                             </span>
                         </div>
@@ -150,8 +172,7 @@
                 <form name="manufacturers">
                     <div class="form-group">
                         <div class="">
-                            <select style="font-size: 14px; background: #EAEAEA; border: none;" name="manufacturers_id"
-                                size="1" class="input-lg form-control arrow-hide date_class">
+                            <select style="font-size: 14px; background: #EAEAEA; border: none;" name="manufacturers_id" size="1" class="input-lg form-control arrow-hide date_class">
                                 <option value="" selected="selected">Please Select manufacturers</option>
                                 <option>lorem</option>
                                 <option>lorem</option>
@@ -203,11 +224,11 @@
                                                 </div>
                                                 <div class="infoBoxContents" id="sidebar">
                                                     <div>
-                                                        <a href="single-product.html">
+                                                        <a href="#">
                                                             <img src="images/img4.jpg" class="img-responsive" />
                                                         </a>
                                                     </div>
-                                                    <a href="single-product.html">Lorem Simply</a><br />€21.00
+                                                    <a href="#">Lorem Simply</a><br />€21.00
                                                 </div>
                                             </div>
                                         </div>
@@ -216,11 +237,9 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <div class="infoBoxHeading">
-                                            <a data-toggle="collapse" data-parent="#accordion"
-                                                href="#collapseThree">Information</a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Information</a>
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                                <i id="accordan_plus"
-                                                    class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+                                                <i id="accordan_plus" class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -238,21 +257,19 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <div class="infoBoxHeading">
-                                            <a data-toggle="collapse" data-parent="#accordion"
-                                                href="#collapseFour">Bestsellers</a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">Bestsellers</a>
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                                                <i id="accordan_plus"
-                                                    class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+                                                <i id="accordan_plus" class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
                                             </a>
                                         </div>
                                     </div>
                                     <div id="collapseFour" class="panel-collapse collapse">
                                         <div class="panel-body">
                                             <div class="infoBoxContents" id="sidebar">
-                                                <a href="single-product.html">
+                                                <a href="#">
                                                     <img src="images/img4.jpg" class="img-responsive" />
                                                 </a>
-                                                <a href="single-product.html">Lorem Big Block</a><br /><del></del>
+                                                <a href="#">Lorem Big Block</a><br /><del></del>
                                                 <span class="productSpecialPrice">€21.00</span>
                                             </div>
                                         </div>
@@ -261,11 +278,9 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <div class="infoBoxHeading">
-                                            <a data-toggle="collapse" data-parent="#accordion"
-                                                href="#collapseFive">Specials</a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">Specials</a>
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                                                <i id="accordan_plus"
-                                                    class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
+                                                <i id="accordan_plus" class="indicator glyphicon glyphicon-chevron-up  pull-right"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -274,10 +289,10 @@
 
                                             <div class="infoBoxContents" id="sidebar">
 
-                                                <a href="single-product.html">
+                                                <a href="#">
                                                     <img src="images/img6.jpg" class="img-responsive" />
                                                 </a>
-                                                <a href="single-product.html">Lorem Big Block</a><br /><del></del>
+                                                <a href="#">Lorem Big Block</a><br /><del></del>
                                                 <span class="productSpecialPrice">€21.00</span>
                                             </div>
                                         </div>
@@ -313,31 +328,44 @@
                             <!----slidder start-!-->
                             <div class="panel panel-default">
 
-                                <div id="collapse-shipping-address" class="panel-collapse collapse in"
-                                    aria-expanded="true" style="">
+                                <div id="collapse-shipping-address" class="panel-collapse collapse in" aria-expanded="true" style="">
                                     <div class="panel-body">
                                         <form class="form-horizontal">
 
-                                            <!-- start content -->
 
 
 
-<!--        -->
-                                            <table border="1"
-                                                style="border-color:gray ; width:810px ; text-align: center;">
+                                            <!--        -->
+                                            <table border="1" style="border-color:gray ; width:810px ; text-align: center;">
                                                 <thead>
                                                     <tr style="background-color:#39BAF0 ;color:white;">
                                                         <th style="text-align: center;">Order NO.</th>
-                                                        <th style="text-align: center;">Medicine name</th>
-                                                        <th style="text-align: center;">Address</th>
+                                                        <th style="text-align: center;">Total order Price</th>
                                                         <th style="text-align: center;">Date</th>
+                                                        <th style="text-align: center;">Medicine name</th>
+                                                        <th style="text-align: center;">Quantity</th>
+                                                        <th style="text-align: center;">Price</th>
+                                                        
 
                                                     </tr>
                                                 </thead>
 
                                                 <tbody>
 
-<!--  -->
+                                                    <?php
+
+                                                    foreach($Products as $prodect) {
+                                                        echo "<tr >";
+                                                        echo "<td style='text-align:center'>" . $prodect['ord_id'] . "</td>";
+                                                        echo "<td style='text-align:center'>" . $prodect['TotalPrice'] . "</td>";
+                                                        echo "<td style='text-align:center'>" . $prodect['order_date'] . "</td>";
+                                                        echo "<td style='text-align:center'>" . $prodect['name'] . "</td>";
+                                                        echo "<td style='text-align:center'>" . $prodect['product_quantity'] . "</td>";
+                                                        echo "<td style='text-align:center'>" . $prodect['price'] . "</td>";
+                                                        echo "</tr>";
+                                                    }
+
+                                                    ?>
 
 
 
@@ -367,61 +395,11 @@
         </div>
     </div>
 
-    <div id="footer1">
-        <div class="container-fluid footer-background">
-            <div class="row">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-2 col-sm-3 col-xs-12 txt-center">
-                            <a href="home.html">
-                                <span class="logo-text">DRUGSTORE</span>
-                            </a>
-                        </div>
-                        <div class="col-md-7 col-sm-6 col-xs-12">
-                            <div id="footer_menu">
-                                <a href="home.html">Home</a> |
-                                <a href="#">About Us</a> |
-                                <a href="#">Disclaimer</a> |
-                                <a href="#">Guarantee</a> |
-                                <a href="#">Shipping & Payment</a> |
-                                <a href="#">Privacy Policy</a> <br class="disable_content" />
-                                <a href="#">Terms & Conditions</a> |
-                                <a href="#">Contact Us</a> |
-                                <a href="#">Site Map<span></span></a>
-
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                            <div id="social_icons" class="pull-right">
-                                <a href="#" class="btn btn-default reg_button"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="btn btn-default reg_button"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="btn btn-default reg_button"><i class="fa fa-yahoo"></i></a>
-                                <a href="#" class="btn btn-default reg_button"><i class="fa fa-envelope"></i></a>
-                                <a href="#" class="btn btn-default reg_button"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="copyright">
-                                <!--Do not remove Backlink from footer of the template. To remove it you can purchase the Backlink !-->
-                                © 2017 All right reserved. Designed by
-                                <a href="http://www.themevault.net/" target="_blank">ThemeVault.</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    <!--Footer-->
+    <?php include('Frames\footer.html'); ?>
     <a style="display: none" href="javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">
         <i class="fa fa-chevron-up"></i>
     </a>
-
-
-
-
-
-
 
 </body>
 

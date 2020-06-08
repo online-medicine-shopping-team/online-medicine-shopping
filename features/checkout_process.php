@@ -24,6 +24,9 @@ if (!empty($_POST)) {
             $Db_object->Insert_WithStringQuery($query);
             
         }
+
+        unset($_SESSION['cart']);
+        unset($_SESSION['total']);
         header("location:../home.php");
 
     } 

@@ -15,12 +15,22 @@ class DbConnection {
     public $db_name="online_medicine_shopping"; //database name 
     private  $database_connection;  
 
-    public function __construct() {
+    //__________________________________________________________________________________________Singleton design pattern
+    public static  $instance;
+    public static function getInstance(){
+        if (!isset(DbConnection::$instance))
+            DbConnection::$instance = new DbConnection();
 
-            $this->database_connection =  $this->database_connect($this->host, $this->username,$this->password);
-            $this->database_select($this->db_name);
-      
+        return DbConnection::$instance;
+
     }
+
+    private function __construct()
+    {
+        $this->database_connection =  $this->database_connect($this->host, $this->username, $this->password);
+        $this->database_select($this->db_name);
+    }
+    
     //__________________________________________________________________________________________connect
     //return connection info
     private function database_connect($database_host, $database_username, $database_password) {
@@ -55,7 +65,7 @@ class DbConnection {
     //return  Assoc Array mysqli_result Object with the num of row and field
     public function database_query($database_query) {
         $this->encode();
-        $query_result = mysqli_query($this->database_connection,$database_query) or die ($mysqli->error());
+        $query_result = mysqli_query($this->database_connection,$database_query) or die ("database_query Error  class DbConnection".mysqli_error($query_result));
         return $query_result;
     }
 

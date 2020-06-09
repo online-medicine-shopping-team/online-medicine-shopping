@@ -214,11 +214,11 @@ if (!empty($_GET['name'])) {
                     if (isset($_SESSION['type'])) {
 
 
-                        echo '<td style="background-color:white"> <a href="features/cart_processes.php?name=' . $row[$i]['name'] . '&cat_name=' . $row[$i]['cat_name'] . '&price=' . $row[$i]['price'] . '">
+                        echo '<td style="background-color:white"> <a href="features/cart_processes.php?pro_id=' . $row[$i]['pro_id'] . '&name=' . $row[$i]['name'] . '&cat_name=' . $row[$i]['cat_name'] . '&price=' . $row[$i]['price'] . '">
                                                         <img src="images/add-to-cart.png" width=50px;height=50px>
                                                     </a></td>';
                     } else {
-                        echo '<td style="background-color:white"><img src="images/add-to-cart.png" width=55px;height=60px><br><a href="login.php"> <h4>Please Login..</h4></a></td>';
+                        echo '<td style="background-color:white"><img src="images/add-to-cart.png" width=55px;height=60px><br><a href="login.html"> <h4>Please Login..</h4></a></td>';
                     }
                     echo '</tr>
                                             </table>';

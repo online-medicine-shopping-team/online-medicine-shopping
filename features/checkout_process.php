@@ -2,9 +2,9 @@
 session_start();
 if (!empty($_POST)) {
     include_once '../DBConection/DbConnection.php';
-    $Db_object = new DbConnection();
+    $Db_object = DbConnection::getInstance();
 
-    //Get Order Id
+    //GetOrderId
     $query = "SELECT max(ord_id)  FROM `orders`";
     $orderId = $Db_object->select($query);
     $order_Id = $orderId[0]['max(ord_id)']+1;
@@ -24,7 +24,6 @@ if (!empty($_POST)) {
             $Db_object->Insert_WithStringQuery($query);
             
         }
-
         unset($_SESSION['cart']);
         unset($_SESSION['total']);
         header("location:../home.php");
@@ -34,3 +33,6 @@ if (!empty($_POST)) {
     die('<H1 style="width: 1500px;height: 50px; font-size:200px; text-align :-moz-center;margin-top:170px "> Sorry 404</H1>');
 }
 
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";

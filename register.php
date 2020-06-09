@@ -93,7 +93,7 @@ $registerObjects->signup($newpassword, $user_name, $phone, $fname,$lname,$email)
                                 <div class="col-md-6 col-xs-6 wd_auto">
                                     <div class="left">
                                         <div class="login">
-                            <a class="btn btn-default reg_button" href="login.php">Login</a> 
+                            <a class="btn btn-default reg_button" href="login.html">Login</a> 
                             <a class="btn btn-default reg_button" href="register.html">Signup</a>
                             <a class="btn btn-default reg_button" href="features/logout_process.php">Logout</a>
                                         </div>          

@@ -67,7 +67,7 @@ session_start();
     <div class="main-content">
         <div class="container cart-block-style">
             <div class="breadcrumbs">
-                <a href="home.php"><i class="fa fa-home"></i></a>
+                <a href="home.html"><i class="fa fa-home"></i></a>
                 <a href="#">Shopping Cart</a>
             </div>
             <div class="contentText">
@@ -95,7 +95,7 @@ session_start();
                                     <td> <b>Price
                                     <td> <b>Delete
                                 </tr>
-
+                                <!--<tr><td colspan="7"><hr style="border:1px Solid #a1a1a1;"></tr> -->
                                 <?php
 
                                 $total = 0;
@@ -169,15 +169,12 @@ session_start();
                     <div class="pull-left"><a class="btn btn-default" href="home.php"><i class="fa fa-caret-right"></i>&nbsp;Continue Shopping</a></div>
                     <div class="pull-right"><a class="btn btn-primary reg_button" href="checkout.php">Confirm & Checkout</a></div>
                 </div>
-            </div>
         </div>
+    </div>
 
-        <!--Footer-->
-        <?php include('Frames\footer.html'); ?>
+    <!--Footer-->
+    <?php include('Frames\footer.html'); ?>
 
-        <a style="display: none" href="javascript:void(0);" class="scrollTop back-to-top" id="back-to-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
     
     //__________________________________________________________________________________Construct
     public function __construct() {
-        $this->Db_object=new DbConnection();
+        $this->Db_object=DbConnection::getInstance();;
         
     }
    //__________________________________________________________________________________Get_AllProduct
@@ -24,14 +24,14 @@
         return $this->Db_object->select($query);
 
     }
-    // //__________________________________________________________________________________ Get_AllOrder
-    // public function Get_AllOrder()
-    // {
+    //__________________________________________________________________________________ Get_AllOrder
+    public function Get_AllOrder()
+    {
 
-    //     $query="SELECT * FROM `order`";
-    //     return $this->Db_object->select($query);
+        $query="SELECT * FROM `orders`";
+        return $this->Db_object->select($query);
 
-    // }
+    }
     //__________________________________________________________________________________ Get_TableProductInfo
     public function Get_TableProductInfo()
     {

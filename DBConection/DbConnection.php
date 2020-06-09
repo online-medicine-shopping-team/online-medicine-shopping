@@ -5,8 +5,6 @@
  * @author Team_One+
  */
 
-<<<<<<< HEAD
-=======
 class DbConnection
 {
 
@@ -16,7 +14,6 @@ class DbConnection
     public $db_name = "online_medicine_shopping"; //database name 
     private  $database_connection;
 
->>>>>>> newbranch
     //__________________________________________________________________________________________Singleton design pattern
     public static  $instance;
     public static function getInstance(){
@@ -29,10 +26,7 @@ class DbConnection
 
     private function __construct()
     {
-<<<<<<< HEAD
-=======
         $this->creatDatabase();
->>>>>>> newbranch
         $this->database_connection =  $this->database_connect($this->host, $this->username, $this->password);
         $this->database_select($this->db_name);
     }
@@ -74,11 +68,7 @@ class DbConnection
     public function database_query($database_query)
     {
         $this->encode();
-<<<<<<< HEAD
-        $query_result = mysqli_query($this->database_connection,$database_query) or die ("database_query Error  class DbConnection".mysqli_error($query_result));
-=======
         $query_result = mysqli_query($this->database_connection, $database_query) or die("database_query Error  class DbConnection".mysqli_error($query_result));
->>>>>>> newbranch
         return $query_result;
     }
 

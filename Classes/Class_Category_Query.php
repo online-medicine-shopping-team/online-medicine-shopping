@@ -5,7 +5,7 @@ class Class_Category_Query{
 
     //__________________________________________________________________________________Construct
     public function __construct() {
-       $this->Db_object=new DbConnection();
+       $this->Db_object=DbConnection::getInstance();
      
    }
    //__________________________________________________________________________________

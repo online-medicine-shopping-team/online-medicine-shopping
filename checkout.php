@@ -155,7 +155,53 @@
                          </div>
                      </div>
                  </div>
-                 
+                 <!--payment form -->
+
+                 <!-- <div class="panel panel-default">
+                     <div class="panel-heading">
+                         <h4 class="panel-title"><a class="accordion-toggle" data-parent="#accordion" data-toggle="collapse" href="#collapse-payment-method" aria-expanded="true">Step 2: Payment Method <i class="fa fa-caret-down"></i></a></h4>
+                     </div>
+                     <div id="collapse-payment-method" class="panel-collapse collapse in" aria-expanded="true" style="">
+                         <div class="panel-body">
+
+                             <form action="features/checkout_process.php" method="post">
+                                 <img src="images/paypal.png" width="700px" height="80px" style="margin-left: 180px">
+
+
+                                 <div class="form-group required">
+                                     <br><br>
+                                     <label for="input-shipping-city" class="col-sm-2 control-label">Name On Card</label>
+                                     <div class="col-sm-10">
+                                         <input type="text" class="form-control" id="input-shipping-city" placeholder="Name " name="nameoncard" required>
+                                     </div>
+                                 </div>
+                                 <br><br>
+                                 <div class="form-group required">
+                                     <label for="input-shipping-postcode" class="col-sm-2 control-label">Card Number</label>
+                                     <div class="col-sm-10">
+                                         <input type="text" class="form-control" id="input-shipping-postcode" placeholder="Card Number" name="cardnumber" required>
+                                     </div>
+                                 </div>
+
+                                 <br><br>
+                                 <div class="form-group required">
+                                     <label for="input-shipping-postcode" class="col-sm-2 control-label">ZIP/Postal code</label>
+                                     <div class="col-sm-10">
+                                         <input type="text" class="form-control" id="input-shipping-postcode" placeholder="0000000" name="zibcode" required>
+                                     </div>
+                                 </div>
+                                 <br><br><br><br><br>
+
+                                 <div class="buttons">
+                                     <div class="pull-right">I have read and agree to the <a class="agree" href="#"><b>Terms &amp; Conditions</b></a> <input type="checkbox" value="1" name="agree" required>
+                                         &nbsp;
+                                         <input type="submit" class="btn btn-primary" id="button-payment-method" value="Payment" name="checkoutButton">
+                                     </div>
+                                 </div>
+                             </form>
+                         </div>
+                     </div>
+                 </div> -->
 
              </div>
 

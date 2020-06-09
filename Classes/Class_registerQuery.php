@@ -5,7 +5,7 @@ include_once './DBConection/DbConnection.php';
 
      //__________________________________________________________________________________Construct
      public function __construct() {
-        $this->Db_object=new DbConnection();
+        $this->Db_object=DbConnection::getInstance();
     }
     //__________________________________________________________________________________
     public function signup($newpassword, $user_name, $phone, $fname,$lname,$email){
